@@ -37,15 +37,21 @@ app.get('/tasks', (req, res) => {
 
 //Endpoint 3. Sort Tasks by Priority
 
+//let tasks = [
+//  { taskId: 1, text: 'Fix bug #101', priority: 2 },
+//  { taskId: 2, text: 'Implement feature #202', priority: 1 },
+//  { taskId: 3, text: 'Write documentation', priority: 3 },
+//];
+
 function sortByPriority(priority1, priority2) {
   return priority1.priority - priority2.priority;
 }
 
-app.get('/tasks/sort-by-priority', (req, res) => {
-  let copyTasks = tasks.slice();
+app.get('/tasks/sort-by-priority', (req , res) => {
+  //let copyTasks = tasks.slice();
   //console.log(copyTask);
-  copyTasks.sort(sortByPriority);
-  res.json(copyTasks);
+  let result = tasks.sort(sortByPriority);
+  res.json(result);
 });
 
 //Endpoint 4. Edit Task Priority
